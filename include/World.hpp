@@ -22,7 +22,11 @@ public:
 	~World();
 
 	void DrawWorld(cv::Mat& img);
+
+	double GetWidth() const {return width;}
+	double GetHeight() const {return height;}
 	
 };
 
 #endif
+

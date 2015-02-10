@@ -1,6 +1,7 @@
 #include "World.hpp"	
 
 #include <iostream>
+#include "Particle.hpp"
 
 using namespace cv;
 

@@ -1,14 +1,23 @@
 #include "Utils.hpp"
-#include <random>
 
+#include <chrono>
 
+std::default_random_engine Utils::generator;
 
-double add_noise(double level, double x)
+void Utils::init()
 {
-	std::default_random_engine generator;
+	generator = std::default_random_engine(std::chrono::system_clock::now().time_since_epoch().count());
+}
+
+double Utils::add_noise(double level, double x)
+{
 	std::uniform_real_distribution<double> distribution(-level,level);
-
 	double noise = distribution(generator);
-
 	return x + noise;
+}
+
+double Utils::sample_uniform(double from, double to)
+{
+	std::uniform_real_distribution<double> distribution(from,to);
+	return distribution(generator);
 }
